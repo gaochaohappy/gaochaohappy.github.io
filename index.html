@@ -1,54 +1,42 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]&gt; &lt;html class=&#34;no-js lt-ie9 lt-ie8 lt-ie7&#34;&gt; &lt;![endif]--> <br>
-<!--[if IE 7]&gt;    &lt;html class=&#34;no-js lt-ie9 lt-ie8&#34;&gt; &lt;![endif]--> <br>
-<!--[if IE 8]&gt;    &lt;html class=&#34;no-js lt-ie9&#34;&gt; &lt;![endif]--> <br>
-<!--[if gt IE 8]&gt;&lt;!-->  <!--&lt;![endif]--> <br>
- <br>gaochaohappy的博客 <br>
-  </p>
-  <h1 id="这是博客首页">
-    <span class="link_title">
-        这是博客首页 <br>
-    </span>
-  </h1>
-  <h2 id="这是测试页面">
-      <span class="link_title">
-          <strong><em>这是测试页面</em></strong>
-      </span>
-  </h2>
+<html>
+<head>
+    <title>MarkDown</title>
+    <script type="text/javascript" src="showdown.min.js"></script>
+</head>
+<style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+     font-size: 16px;
+      line-height: 1.42857143;
+      color: #333;
+      background-color: #fff;
+    }
+    ul li {
+        line-height: 24px;
+    }
+    blockquote {
+        border-left:#eee solid 5px;
+        padding-left:20px;
+    }
+    code {
+        color:#D34B62;
+        background: #F9F2F4;
+    }
+</style>
+<body>
+<div>
+    <textarea id="content" style="height:400px;width:600px;" onkeyup="compile()"></textarea>
+    <div id="result"></div>
 
-<blockquote>
-  <p>贴一段代码看看</p>
-</blockquote>
-
-<pre>
-  <code>
-    Hello World ！
-  </code>
-</pre>
-
-<hr>
-
-<h2 id="第二章">第二章</h2>
-
-<ul>
-<li>List 1</li>
-<li>List 2</li>
-</ul>
-<h3 id="贴代码">贴代码</h3>
-<blockquote>
-  <p>void onCreate (Bundle savedInstanceState)</p>
-</blockquote>
-<pre>
-  <code>
-Called when the activity is starting. This is where most initialization
-should go: calling setContentView(int) to inflate the activity's UI, using
-findViewById(int) to programmatically interact with widgets in the UI,
-calling managedQuery(android.net.Uri, String[], String, String[],
-String) to retrieve cursors for data being displayed, etc.
-<br>
-You can call finish() from within this function, in which case
-onDestroy() will be immediately called without any of the rest of the
-ctivity lifecycle (onStart(), onResume(), onPause(), etc) executing.
-  </code>
-</pre>
-<br>
+</div>
+<script type="text/javascript">
+function compile(){
+    var text = document.getElementById("content").value;
+    var converter = new Showdown.converter();
+    var html = converter.makeHtml(text);
+    document.getElementById("result").innerHTML = html;
+}
+</script>
+</body>
+</html>
